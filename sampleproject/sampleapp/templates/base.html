@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Document {% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script> 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+
+</head>
+<body>
+        <!-- Navbar -->
+        <nav class="bg-gray-900 py-4">
+            <div class="container mx-auto">
+                <ul class="flex space-x-6">
+                    <li><a href="/index/" class="text-white hover:text-gray-300">Home</a></li>
+                    <li><a href="/about/" class="text-white hover:text-gray-300">About</a></li>
+                    <li><a href="/contact/" class="text-white hover:text-gray-300">Contact</a></li>
+                    <li><a href="/blog_list/" class="text-white hover:text-gray-300">Blog List</a></li>
+                    <li><a href="{% url 'logout' %}?next={{ next }}" class="text-white hover:text-gray-300">Logout</a></li>
+
+                </ul>
+            </div>
+        </nav>
+
+
+    <!-- Content to be added from child templates -->
+    {% block content %}
+
+    {% endblock %}
+
+    <!-- Footer -->
+    <footer>
+        <p>Copyright © 2022 My Website</p>
+        <nav>
+          <a href="/terms">Terms of Service</a> | 
+          <a href="/privacy">Privacy Policy</a>
+        </nav>
+    </footer>
+    
+</body>
+</html>
